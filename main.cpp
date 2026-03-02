@@ -4,7 +4,7 @@
 #include <iomanip>
 
 using namespace std;
-
+// Komentaras
 // ===== SAUGUS INT IVEDIMAS =====
 int saugusInt(int min, int max) {
     int x;
