@@ -1,10 +1,9 @@
 #include <iostream>
 #include <iomanip>
 #include <limits>
-#include <iomanip>
 
 using namespace std;
-// Komentaras
+
 // ===== SAUGUS INT IVEDIMAS =====
 int saugusInt(int min, int max) {
     int x;
@@ -81,7 +80,7 @@ int main() {
         cout << "Pasirinkite: ";
         int isVal = saugusInt(1, 4);
 
-        cout << "\nPasirinkite pirmine valiuta:\n";
+        cout << "\nPasirinkite valiuta:\n";
         cout << "1 - EUR\n";
         cout << "2 - GBP\n";
         cout << "3 - USD\n";
@@ -101,28 +100,25 @@ int main() {
 
         cout << fixed << setprecision(2);
 
-        // ===== PALYGINIMAS =====
-        if (pasirinkimas == 1) {
+        switch (pasirinkimas) {
 
-            rezultatas = suma / kursaiBendri[isVal - 1] * kursaiBendri[iVal - 1];
+            case 1: // PALYGINIMAS
+                rezultatas = suma / kursaiBendri[isVal - 1] * kursaiBendri[iVal - 1];
+                cout << "Rezultatas: " << rezultatas << endl;
+                break;
 
-            cout << "Rezultatas: " << rezultatas << endl;
-        }
+            case 2: // PIRKIMAS
+                rezultatas = suma / kursaiPirkti[isVal - 1] * kursaiPirkti[iVal - 1];
+                cout << "Jus gausite: " << rezultatas << endl;
+                break;
 
-        // ===== PIRKIMAS =====
-        else if (pasirinkimas == 2) {
+            case 3: // PARDAVIMAS
+                rezultatas = suma / kursaiParduoti[isVal - 1] * kursaiParduoti[iVal - 1];
+                cout << "Jus gausite: " << rezultatas << endl;
+                break;
 
-            rezultatas = suma / kursaiPirkti[isVal - 1] * kursaiPirkti[iVal - 1];
-
-            cout << "Jus gausite: " << rezultatas << endl;
-        }
-
-        // ===== PARDAVIMAS =====
-        else if (pasirinkimas == 3) {
-
-            rezultatas = suma / kursaiParduoti[isVal - 1] * kursaiParduoti[iVal - 1];
-
-            cout << "Jus gausite: " << rezultatas << endl;
+            default:
+                cout << "Neteisingas pasirinkimas.\n";
         }
     }
 
